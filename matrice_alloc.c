@@ -51,18 +51,17 @@ MatErreur mat_allouer(Matrice *res, int nb_lignes, int nb_colonnes)
     if (coef == NULL)
         return MAT_ERR_ALLOCATION;
 
-    /* (1.d) À COMPLÉTER : allouer chaque ligne.
-     *   for (int i = 0; i < nb_lignes; i++) {
-     *       coef[i] = mat_calloc(..., ...);    // nb_colonnes entiers
-     *       if (coef[i] == NULL) {
-     *           for (int k = i - 1; k >= 0; k--)  // lignes déjà
-     *               free(coef[k]);                // obtenues
-     *           free(coef);                       // puis le tableau
-     *           return MAT_ERR_ALLOCATION;
-     *       }
-     *   }                                                             */
+    /* (1.d) */
+    for (int i = 0; i < nb_lignes; i++) {
+        coef[i] = mat_calloc(nb_colonnes, sizeof(int));     // chaque ligne contient nb_collonnes entiers
+        if (coef[i] == NULL) {                  // si une ligne est NULL, 
+            for (int k = i - 1; k >= 0; k--)    // on libère toutes les lignes précédentes
+                free(coef[k]);                  // et le tableau de pointeurs
+            free(coef);
+            return MAT_ERR_ALLOCATION;
+        }
+    }
 
-    (void)nb_colonnes;   /* ligne provisoire : à supprimer en (1.d) */
 
     /* (1.e) À COMPLÉTER : maintenant que tout a réussi, remplir *res
      *       (trois affectations : coef, nb_lignes, nb_colonnes)
