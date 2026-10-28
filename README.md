@@ -78,6 +78,19 @@ Compilation/test :
 
 On remarque que l'échec d'allocation simulé à bien fonctionné mais que la vérification que les coefficients sont nuls a échouée. Dans un premier temps il nous a semblé qu'un oubli de notre part avait dû être commis mais après réflexion nous pensons que c'est parce qu'à ce stade la structure *res n'est pas encore mise à jour avec les pointeurs fraichement alloués. Cela se vérifiera à la question suivante.
 
+### Question (1.e)
+```c
+  /* (1.e) : maintenant que tout a réussi, remplir *res */
+  res->coef = coef;
+  res->nb_lignes = nb_lignes;
+  res->nb_colonnes = nb_colonnes;
+  return MAT_OK;
+  /* fin (1.e) */
+```
+Vérification :
+
+![capture](captures/capture_1e.png)
+
 # 5. Vérification mémoire
 
 # 6. Démonstration finale
