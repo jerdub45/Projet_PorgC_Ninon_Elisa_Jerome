@@ -91,6 +91,8 @@ Vérification :
 
 ![capture](captures/capture_1e.png)
 
+En effet, il suffisait d'attendre la question suivante pour pouvoir faire la vérification.
+
 # 5. Vérification mémoire
 
 # 6. Démonstration finale
