@@ -72,6 +72,12 @@ En cas d'échec il faut rendre non seulement toutes les lignes précédemment al
 
 ![dessin](captures/dessin_1d.png)
 
+Compilation/test :
+
+![capture](captures/capture_1d.png)
+
+On remarque que l'échec d'allocation simulé à bien fonctionné mais que la vérification que les coefficients sont nuls a échouée. Dans un premier temps il nous a semblé qu'un oubli de notre part avait dû être commis mais après réflexion nous pensons que c'est parce qu'à ce stade la structure *res n'est pas encore mise à jour avec les pointeurs fraichement alloués. Cela se vérifiera à la question suivante.
+
 # 5. Vérification mémoire
 
 # 6. Démonstration finale
