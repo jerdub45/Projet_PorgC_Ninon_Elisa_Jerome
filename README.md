@@ -93,6 +93,25 @@ Vérification :
 
 En effet, il suffisait d'attendre la question suivante pour pouvoir faire la vérification.
 
+### Question (1.f)
+```c
+    /* (1.f) : si m->coef n'est pas NULL alors tout libérer */
+    if (m->coef != NULL) {
+        for (int i = 0; i < m->nb_lignes; i++) {
+            free(m->coef[i]);  // libérer chaque ligne
+        }
+        free(m->coef);         // libérer le tableau de pointeurs lui-même
+    }
+    /* fin (1.f) */
+```
+Vérification :
+
+![capture](captures/capture_1f.png)
+
+Valgrind :
+
+![capture](captures/valgrind_1f.png)
+
 # 5. Vérification mémoire
 
 # 6. Démonstration finale
