@@ -55,6 +55,23 @@ Vérification :
 
 ![capture_1.c](captures/capture_1c.png)
 
+### Question (1.d)
+```c
+    /* (1.d) */
+    for (int i = 0; i < nb_lignes; i++) {
+        coef[i] = mat_calloc(nb_colonnes, sizeof(int));     // chaque ligne contient nb_collonnes entiers
+        if (coef[i] == NULL) {                  // si une ligne est NULL, 
+            for (int k = i - 1; k >= 0; k--)    // on libère toutes les lignes précédentes
+                free(coef[k]);                  
+            free(coef);                         // et le tableau de pointeurs
+            return MAT_ERR_ALLOCATION;
+        }
+    }
+```
+En cas d'échec il faut rendre non seulement toutes les lignes précédemment allouées mais aussi le tableau coef lui-même.
+
+![dessin](captures/dessin_1d.png)
+
 # 5. Vérification mémoire
 
 # 6. Démonstration finale
