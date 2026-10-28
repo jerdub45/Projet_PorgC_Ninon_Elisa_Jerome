@@ -112,6 +112,8 @@ Valgrind :
 
 ![capture](captures/valgrind_1f.png)
 
+Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
+
 # 5. Vérification mémoire
 
 # 6. Démonstration finale
