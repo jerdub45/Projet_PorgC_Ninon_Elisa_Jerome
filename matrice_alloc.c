@@ -53,11 +53,11 @@ MatErreur mat_allouer(Matrice *res, int nb_lignes, int nb_colonnes)
 
     /* (1.d) */
     for (int i = 0; i < nb_lignes; i++) {
-        coef[i] = mat_calloc(nb_colonnes, sizeof(int));     // chaque ligne contient nb_collonnes entiers
+        coef[i] = mat_calloc((size_t)nb_colonnes, sizeof(int));     // chaque ligne contient nb_collonnes entiers
         if (coef[i] == NULL) {                  // si une ligne est NULL, 
             for (int k = i - 1; k >= 0; k--)    // on libère toutes les lignes précédentes
-                free(coef[k]);                  // et le tableau de pointeurs
-            free(coef);
+                free(coef[k]);                  
+            free(coef);                         // et le tableau de pointeurs
             return MAT_ERR_ALLOCATION;
         }
     }
