@@ -24,7 +24,8 @@ Date de rendu :
   /* (fin 1.a) */
 ```
 Vérification :
-![capture_1.a](captures\capture_1.a)
+
+![capture_1.a](captures/capture_1.a.png)
 
 ### Question (1.b)
 ```c
@@ -36,7 +37,8 @@ Vérification :
   /* (fin 1.b) */
 ```
 Vérification :
-![capture_1.b](captures\capture_1b)
+
+![capture_1.b](captures/capture_1b.png)
 
 ### Question (1.c)
 ```c
@@ -50,7 +52,8 @@ Vérification :
   /* fin (1.c) */
 ```
 Vérification :
-![capture_1.c](captures\capture_1c)
+
+![capture_1.c](captures/capture_1c.png)
 
 # 5. Vérification mémoire
 
