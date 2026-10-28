@@ -76,10 +76,14 @@ void mat_detruire(Matrice *m)
     if (m == NULL)                 /* FOURNI */
         return;
 
-    /* (1.f) À COMPLÉTER : si m->coef n'est pas NULL :
-     *         - libérer chaque ligne m->coef[i], i de 0 à nb_lignes - 1 ;
-     *         - PUIS libérer le tableau m->coef lui-même.              */
-
+    /* (1.f) : si m->coef n'est pas NULL alors tout libérer */
+    if (m->coef != NULL) {
+        for (int i = 0; i < m->nb_lignes; i++) {
+            free(m->coef[i]);  // libérer chaque ligne
+        }
+        free(m->coef);         // libérer le tableau de pointeurs lui-même
+    }
+    /* fin (1.f) */
 
     *m = MATRICE_VIDE;   /* FOURNI : état sûr après destruction (R6) */
 }
