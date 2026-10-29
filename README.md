@@ -2,8 +2,8 @@
 Intitulé du TD : TD stockage de matrices en C.
 | Prénom NOM                | Identifiant GitHub |  
 |            ---            |         ---        |
-| Ninon LE PARQUIC--SANTAIS |                    |
-| Elisa SIEGEL              |                    |
+| Ninon LE PARQUIC--SANTAIS | ninonlps           |
+| Elisa SIEGEL              | elisasiegel        |
 | Jérôme DUBOCQ             | jerdub45           |
 
 Groupe TD : TD3
