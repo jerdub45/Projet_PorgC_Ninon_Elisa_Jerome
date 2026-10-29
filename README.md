@@ -16,9 +16,9 @@ Date de rendu :
 2. [Introduction](#introduction)
 3. [Conception](#conception)
 4. [Réalisation](#réalisation)
-5. [Vérification_mémoire](#vérification-mémoire)
-6. [Démonstration_finale](#démonstration-finale)
-7. [Bilan_et_difficultés](#bilan-et-dificultés)
+5. [Vérification mémoire](#vérification-mémoire)
+6. [Démonstration finale](#démonstration-finale)
+7. [Bilan et difficultés](#bilan-et-dificultés)
 
 # 2. Introduction
 Ce projet est réalisé dans le cadre du cours de programmation C. Il s'agit d'une bibliothèque C ayant pour but la manipulation de matrices de coefficients entiers et les calculs matriciels associés. Cette bibliothèque se découpe en plusieurs modules qui possèdent chacun une utilité qui leur est propre. Les objectifs de ce TD sont :
