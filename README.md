@@ -10,6 +10,16 @@ Groupe TD : TD3
 
 Date de rendu :
 
+## Table des matières :
+
+1. [En-tête](en-tete)
+2. [Introduction](introduction)
+3. [Conception](conception)
+4. [Réalisation](realisation)
+5. [Vérification_mémoire](verification_memoire)
+6. [Démonstration_finale](demonstration_finale)
+7. [Bilan_et_difficultés](bilan_et_dificultes)
+
 # 2. Introduction
 Ce projet est réalisé dans le cadre du cours de programmation C. Il s'agit d'une bibliothèque C ayant pour but la manipulation de matrices de coefficients entiers et les calculs matriciels associés. Cette bibliothèque se découpe en plusieurs modules qui possèdent chacun une utilité qui leur est propre. Les objectifs de ce TD sont :
 
