@@ -141,12 +141,35 @@ Valgrind nous indique bien : `All heap blocks were freed – no leaks are possib
 ### Question (2.d)
 ### Question (2.e)
 ### Question (2.f)
-## Exercice 3 
+## Exercice 3
+### Question (3.a)
 <img width="710" height="225" alt="image" src="https://github.com/user-attachments/assets/6d1d5d8a-6218-4b62-ac37-2628a4c0b846" />
+### Question (3.b)
 <img width="693" height="197" alt="image" src="https://github.com/user-attachments/assets/4553dd0c-1681-48b4-9b88-e177242b2cd5" />
+### Question (3.c)
 <img width="647" height="142" alt="image" src="https://github.com/user-attachments/assets/5fb9ae06-3998-4f8e-ba3b-3a96d2c49808" />
+### Question (3.d)
 <img width="751" height="195" alt="image" src="https://github.com/user-attachments/assets/98149085-5ca8-4931-8f20-13060a5500d7" />
+### Question (3.e)
 <img width="658" height="190" alt="image" src="https://github.com/user-attachments/assets/00821646-0770-4467-b3f8-4f07267950da" />
+### Question (3.f)
+<img width="706" height="187" alt="image" src="https://github.com/user-attachments/assets/7a4325fd-9078-4e6b-ab5b-69c93f83bf36" />
+### Question (3.g)
+<img width="617" height="320" alt="image" src="https://github.com/user-attachments/assets/8c0452bd-1177-4986-a5f2-7873f9f1424d" />
+### Question (3.h)
+<img width="808" height="170" alt="image" src="https://github.com/user-attachments/assets/026784dd-bb2b-4f83-a4bb-008eeea26e03" />
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
