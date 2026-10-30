@@ -157,7 +157,9 @@ Valgrind nous indique bien : `All heap blocks were freed – no leaks are possib
 ### Question (3.d)
 
 <img width="751" height="195" alt="image" src="https://github.com/user-attachments/assets/98149085-5ca8-4931-8f20-13060a5500d7" />
+
 Vérification :
+
 <img width="690" height="229" alt="image" src="https://github.com/user-attachments/assets/f3bcd23a-1749-4be7-bfce-7058f76747c4" />
 
 
@@ -177,9 +179,13 @@ Vérification :
 ### Question (3.h)
 
 <img width="808" height="170" alt="image" src="https://github.com/user-attachments/assets/026784dd-bb2b-4f83-a4bb-008eeea26e03" />
+
 Vérification:
+
 <img width="701" height="279" alt="image" src="https://github.com/user-attachments/assets/688f90d8-27e0-42b0-8075-dd904fd62662" />
+
 Valgrind:
+
 <img width="463" height="121" alt="image" src="https://github.com/user-attachments/assets/ed018a68-c86a-49fb-8a69-2edac0015833" />
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
 
