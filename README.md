@@ -178,6 +178,11 @@ Valgrind nous indique bien : `All heap blocks were freed – no leaks are possib
 
 <img width="808" height="170" alt="image" src="https://github.com/user-attachments/assets/026784dd-bb2b-4f83-a4bb-008eeea26e03" />
 
+<img width="701" height="279" alt="image" src="https://github.com/user-attachments/assets/688f90d8-27e0-42b0-8075-dd904fd62662" />
+<img width="463" height="121" alt="image" src="https://github.com/user-attachments/assets/ed018a68-c86a-49fb-8a69-2edac0015833" />
+
+
+
 
 
 
