@@ -187,6 +187,7 @@ Vérification:
 Valgrind:
 
 <img width="463" height="121" alt="image" src="https://github.com/user-attachments/assets/ed018a68-c86a-49fb-8a69-2edac0015833" />
+
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
 
 
