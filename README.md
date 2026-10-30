@@ -142,6 +142,8 @@ Valgrind nous indique bien : `All heap blocks were freed – no leaks are possib
 ### Question (2.e)
 ### Question (2.f)
 ## Exercice 3 
+<img width="710" height="225" alt="image" src="https://github.com/user-attachments/assets/6d1d5d8a-6218-4b62-ac37-2628a4c0b846" />
+
 
 
 # 5. Vérification mémoire
