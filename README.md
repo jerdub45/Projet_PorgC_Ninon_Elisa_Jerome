@@ -146,7 +146,7 @@ Valgrind nous indique bien : `All heap blocks were freed – no leaks are possib
 ```
 pour compiler le programme j'ai utilisé le modèle des commendes utilisée en td
 on test la compilation et le fonctionnement du programme avec test_ex2 :
-
+![capture](captures/Capture_q2.a.png)
 on observe le résultat attendu
 ### Question (2.b)
 ```c
@@ -158,9 +158,9 @@ on observe le résultat attendu
         return MAT_ERR_ECRITURE;
 ```
 on test la compilation et le fonctionnement du programme avec test_ex2
-
+![capture](captures/Capture_q2.b_test.png)
 on regarde le contenu de test_ex2_sortie.txt
-
+![capture](captures/Capture_q2.b_fichier.png)
 on observe les résultats attendus 
 ### Question (2.c)
 ```c
@@ -191,7 +191,8 @@ on observe les résultats attendus
     return MAT_OK;
 ```
 on test la compilation et le fonctionnement du programme avec test_ex2 :
-
+![capture](captures/Capture_q2.f1.png)
+![capture](captures/Capture_q2.f2.png)
 on observe le résultat attendu
 ### Questions de réflexion
 #### question 4.1
@@ -278,34 +279,38 @@ Valgrind nous indique bien : `All heap blocks were freed – no leaks are possib
 ```
 ### Scénarios de test
 #### Scénario 1
-
+![capture](captures/Capture_scenario1.png)
 on retrouve les résultats attendus
 #### Scénario 2
-
+![capture](captures/Capture_scenario2.png)
 on retrouve les résultats attendus
 #### Scénario 3
-
+![capture](captures/Capture_scenario3.png)
 on retrouve les résultats attendus
 #### Scénario 4
-
+![capture](captures/Capture_scenario4.png)
 on retrouve les résultats attendus
 #### Scénario 5
-
+![capture](captures/Capture_scenario5.png)
 on retrouve les résultats attendus
 #### Scénario 6
-
+![capture](captures/Capture_scenario6.png)
 on retrouve les résultats attendus
 #### Scénario 7
-
+![capture](captures/Capture_scenario7.png)
 on retrouve les résultats attendus
 #### Scénario 8
-
+![capture](captures/Capture_scenario8.1.png)
+![capture](captures/Capture_scenario8.2.png)
 on retrouve les résultats attendus
 #### Scénario 9
-
+![capture](captures/Capture_scenario9.2.1.png)
+![capture](captures/Capture_scenario9.2.2.png)
+![capture](captures/Capture_scenario9.3.1.png)
+![capture](captures/Capture_scenario9.3.2.png)
 on retrouve les résultats attendus
 #### Scénario 10
-
+![capture](captures/Capture_scenario10.png)
 on retrouve les résultats attendus
 
 
