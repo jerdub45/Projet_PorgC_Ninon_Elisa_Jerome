@@ -136,11 +136,73 @@ Valgrind :
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
 ## Exercice 2
 ### Question (2.a)
+```c
+    for (int i=0;i<(m->nb_lignes);i++){
+      for (int j=0;j<(m->nb_colonnes);j++){
+        printf("%8d", m->coef[i][j]);
+      }
+      putchar('\n');
+    }
+```
+pour compiler le programme j'ai utilisé le modèle des commendes utilisée en td
+on test la compilation et le fonctionnement du programme avec test_ex2 :
+
+on observe le résultat attendu
 ### Question (2.b)
+```c
+    for (int i = 0; i < m->nb_lignes; i++){
+      for (int j = 0; j < m->nb_colonnes; j++)
+        if( fprintf(f, j==0 ? "%d" : " %d", m->coef[i][j]) < 0)
+          return MAT_ERR_ECRITURE;
+      if(fputc('\n', f)==EOF)
+        return MAT_ERR_ECRITURE;
+```
+on test la compilation et le fonctionnement du programme avec test_ex2
+
+on regarde le contenu de test_ex2_sortie.txt
+
+on observe les résultats attendus 
 ### Question (2.c)
+```c
+    if (nb_lignes<1 || nb_lignes>MAT_DIM_MAX || nb_colonnes<1 || nb_colonnes>MAT_DIM_MAX)
+      return MAT_ERR_FORMAT;
+```
 ### Question (2.d)
+```c
+    Matrice tmp;
+    err = mat_allouer(&tmp, nb_lignes, nb_colonnes);
+    if (err !=MAT_OK)
+      return err;
+```
 ### Question (2.e)
+```c
+    for (int i=0; i < tmp.nb_lignes; i++){
+      for (int j=0; j < tmp.nb_colonnes; j++){
+        err=lire_entier(f, &tmp.coef[i][j]);
+        if (err!=MAT_OK){
+          mat_detruire(&tmp);
+          return err;
+        }
+      }
+```
 ### Question (2.f)
+```c
+    *res=tmp;
+    return MAT_OK;
+```
+on test la compilation et le fonctionnement du programme avec test_ex2 :
+
+on observe le résultat attendu
+### Questions de réflexion
+#### question 4.1
+mat_lire utilise une matrice temporaire pour simplifier la gestion des erreurs. En effet, si la fonction rencontre un problème, il est plus simple de libérer l’espace mémoire utilisé pour une matrice temporaire et de renvoyer un message d’erreur. 
+De plus, renvoyer une matrice qui provoque des erreurs pourrait provoquer des problèmes dans la suite du programme. Pour éviter cela, *res n’est modifié qu’à la fin du programme une fois que les erreurs ont été détectées.
+#### question 4.2
+Non, la lecture ne vérifie pas que chaque ligne de la matrice soit sur sa propre ligne de texte. Cela n’est pas gênant car le programme ne cherche pas les informations dans la mise en page. Cela correspond avec le principe « tolérant en lecture, strict en écriture », le programme renvoie toujours le même format, mais ne renvoie pas d’erreur si les matrices passées en paramètre ne suivent pas la même mise en page.
+#### question 4.3
+Le flux est positionné après le dernier coefficient, si on essaye de lire un autre élément dans ce fichier, la lecture commencera après le dernier coefficient lu. De plus, il n’y a pas de problème à avoir plusieurs matrices dans le même fichier comme chaque matrice commence par donner ses dimensions donc le programme sait combien de lignes lire.
+#### question 4.4
+mat_ecrire appelle fflush car cette fonction utilise fprintf et fputc qui écrivent dans un tampon et certaines erreurs ne peuvent apparaître que lorsque le tampon est vidé, il faut donc utiliser fflush pour le vider. Cela ne dispense pas l’appelant de tester fclose d’une part pour libérer la mémoire (mat_ecrire ne le fait pas) et d’autre part car fclose peut échouer même si fflush réussit puisqu’il y a des erreurs qui ne sont visibles qu’à la fermeture du fichier.
 ## Exercice 3
 ### Question (3.a)
 
@@ -190,16 +252,61 @@ Valgrind:
 
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
 
+## Exercice 4
+### Question (4.a)
+```c
+    mat_afficher("A",&a);
+    mat_afficher("B",&b);
+```
+### Question (4.b)
+```c
+    MatErreur err=addition ? mat_additionner(&a, &b, &r) : mat_multiplier(&a, &b, &r);
+    if (err != MAT_OK) {
+      fprintf(stderr, "Erreur : calcul impossible : %s ", mat_message_erreur(err));
+      fprintf(stderr, "(A : %d x %d, B : %d x %d)\n", a.nb_lignes, a.nb_colonnes, b.nb_lignes, b.nb_colonnes);
+      goto nettoyage;
+    }
+```
+### Question (4.c)
+```c
+    mat_afficher(addition ? "R = A + B" : "R = A x B", &r);
+```
+### Question (4.d)
+```c
+    printf("Résultat enregistré dans \"%s\".\n", argv[4]);
+    statut =EXIT_SUCCESS;
+```
+### Scénarios de test
+#### Scénario 1
 
+on retrouve les résultats attendus
+#### Scénario 2
 
+on retrouve les résultats attendus
+#### Scénario 3
 
+on retrouve les résultats attendus
+#### Scénario 4
 
+on retrouve les résultats attendus
+#### Scénario 5
 
+on retrouve les résultats attendus
+#### Scénario 6
 
+on retrouve les résultats attendus
+#### Scénario 7
 
+on retrouve les résultats attendus
+#### Scénario 8
 
+on retrouve les résultats attendus
+#### Scénario 9
 
+on retrouve les résultats attendus
+#### Scénario 10
 
+on retrouve les résultats attendus
 
 
 
