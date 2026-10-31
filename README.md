@@ -134,6 +134,26 @@ Valgrind :
 ![capture](captures/valgrind_1f.png)
 
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
+
+### Question de réflexion (Q3.1)
+mat_detruire prend un Matrice* car si elle prenait un Matrice alors m serait une copie de la matrice de l'appelant et donc on ne pourrait pas libérer la matrice de l'appelant.
+Avec un passage par valeur m serait une copie, on aurait alors libérer une variable locale à la fonction (qui aurait donc de toute façon été libérer lors de la fin de l'exécution de celle-ci) et la matrice de l'appelant n'aurait subit aucun changement.
+
+### Question de réflexion (Q3.2)
+Pour une matrice de taille n x p il faut n+1 calloc car il faut 1 calloc pour réserver le premier tableau de pointeur puis 1 calloc par lign, soit n calloc de plus.
+n+1 free sont necessaire également pour libérer une telle matrice car il faut libérer chaque ligne (n calloc) puis le tableau de pointeurs.
+
+Si la k-ième itération échoue alors il faut libérer les k-1 lignes qui viennent d'être allouées puis le tableau de pointeurs, soit k appels à la fonction free.
+
+### Question de réflexion (Q3.3)
+Appeler deux fois la fonction mat_detruire est sans danger car il y a un test de sécurité qui est effectuer en premier lors de l'appel à la fonction. Si la matrice pointée par l'adresse passée en paramètre est égale à NULL, autrement dit si la matrice est vide alors on ne fait rien, on quitte directement la fonction. De plus, après la libération la fonction mat_detruire force l'état de la matrice avec `*m = MATRICE_VIDE;`
+
+Par contre ce n'est plus vrai si on fait une copie de la matrice tel que : `Matrice b = a;` car :
+* b contient désormais la même adresse (coef) contenue dans a. Elles pointent le même espace mémoire.
+* Lorsque l'on libère la matrice a on libère l'espace mémoire pointé par sa variable coef et son état est forcé à MATRICE_VIDE.
+* La variable coef de b n'a cependant pas été mise à jour et pointe donc maintenant sur un espace mémoire qui n'est plus réservé.
+* Par conséquent appeler mat_detruire sur b va provoquer un appel à free sur une zone mémoire déjà libérée, on obtient donc un comportement indéterminé.
+
 ## Exercice 2
 ### Question (2.a)
 ```c
@@ -144,7 +164,7 @@ Valgrind nous indique bien : `All heap blocks were freed – no leaks are possib
       putchar('\n');
     }
 ```
-pour compiler le programme j'ai utilisé le modèle des commendes utilisée en td
+pour compiler le programme j'ai utilisé le modèle des commandes utilisée en td
 on test la compilation et le fonctionnement du programme avec test_ex2 :
 ![capture](captures/Capture_q2.a.png)
 on observe le résultat attendu
