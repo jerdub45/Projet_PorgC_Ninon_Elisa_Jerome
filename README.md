@@ -273,6 +273,33 @@ Valgrind:
 
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
 
+### Question de réflexion (Q5.1)
+
+Le paramètre const Matrice*a n’empêche pas la compilation , ici const va s’appliquer a la structure pointé par a c’est-à-dire nb_lignes,nb_colonnes et le pointeur coef. Donc comme coef est un int** donc un pointeur vers des pointeurs vers des int, le const protège le pointeur coef mais pas les donnés qu’il pointe. L'instruction a->coef[0][0] = 7 ne modifie donc pas un champ de la structure mais un entier situé dans un autre bloc mémoire pointé ainsi l’instruction passe.
+Pour que le compilateur refuse l’affectation le const doit être à tous les niveaux, c’est-à-dire jusqu’à l’int. 
+En écrivant ``` const int * const *coef; ```
+cela empêcherait alors l’affectation.
+
+### Question de réflexion (Q5.2)
+
+Mathématiquement, l’opération est valide et de même en programmation. Cependant, elle est rejetée par notre implémentation pour éviter des problèmes de mémoire. C’est à dire que si la matrice de destination est la même que l'une des matrices d'entrée, la structure d'entrée sera modifiée et cette réaffectation va écraser certaines données de l’ancienne matrice en entrée.
+ Si on l’acceptait on aurait alors l’ancien bloc mémoire alloué avec malloc qui ne serait référencé par plus aucun pointeur et on ne pourrait plus libérer cet espace mémoire. Dans le cas de notre implémentation, le pointeur  a->coef serait directement écrasé par celui de la nouvelle matrice r, provoquant la perte définitive de l'adresse du bloc d'origine ainsi on ne pourra plus libérer cet espace et cela peut entrainer une fuite de mémoire .
+
+### Question de réflexion (Q5.3)
+
+Le produit de A de taille (n×p) par B de taille (p×q) donne une matrice C de n×q coefficients. Chaque coefficient de C exige une somme de p produits. Donc :
+Nombre total de multiplications =  p × q× n
+Pour deux matrices 1000×1000 (n = p = q = 1000) :
+1000 × 1000 × 1000 = 1000^3 =10^9
+Soit un milliard de multiplication.
+
+### Question de réflexion (Q5.4)
+
+Premièrement, en langage C un dépassement (overflow) sur des variables de type int est un comportement indéfini (Undefined Behavior) ce qui signifie que le compilateur peut trop optimiser le code et rendre le test faux ou inopérant.
+De plus, un test simple comme s < a ne suffit pas pour détecter tous les cas de dépassement par exemple il ne couvre pas les cas avec des nombres négatifs. C'est pourquoi on passe par un type plus grand (long long) avant de vérifier les bornes INT_MIN et INT_MAX.
+
+
+
 ## Exercice 4
 ### Question (4.a)
 ```c
@@ -333,9 +360,20 @@ on retrouve les résultats attendus
 ![capture](captures/Capture_scenario10.png)
 on retrouve les résultats attendus
 
+### Question de réflexion (Q6.1)
 
+Le message d’erreur ne doit pas être directement affiché par mat_lire car cela permet à la bibliothèque de rester indépendante de l'interface. En effet si mat_lire affichait le message la bibliothèque serait liée à un affichage console et ne pourrait pas être réutilisée dans un programme graphique . La fonction se contente donc de renvoyer un code d'erreur, et c'est au fichier main.c de gérer l'affichage .
 
+### Question de réflexion (Q6.2)
 
+Le résultat de fclose est testé dans sauvegarder car ici le fichier est ouvert en mode écriture et donc fclose doit vider des tampons de données ainsi en testant on peut détecter des erreurs d’écriture ou un disque pleins. Tandis que dans charger le fichier est ouvert en mode lecture donc il n’y a aucun donnés a écrire ou de tampon a vider il n’y a donc pas d’échec possible à la fermeture.
+
+### Question de réflexion (Q6.3)
+
+Il faut libérer la matrice a, b et la matrice résultat r soit 3 matrices. Même si l'enregistrement sur disque a échoué, le calcul a bien eu lieu et a alloué de la mémoire pour r. Dans notre programme gotto nettoyage assure la destruction des matrice et appelle mat_detruire.
+Et on a bien 
+mat_detruire(&r); mat_detruire(&b); mat_detruire(&a);
+qui permet de libéré l’espace en détruisant les matrices.
 
 
 
