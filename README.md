@@ -440,9 +440,13 @@ Scénario d'erreur pour demo_matrices :
 
 ## Répartition du travail
 Exercice 1 : Jérôme
+
 Exercice 2 : Ninon
+
 Exercice 3 : Elisa
+
 Exercice 4 : Ninon et Elisa
+
 Rédaction  : Jérôme
 
 Malgré ce découpage des tâches nous nous sommes entraidés au besoin. 
