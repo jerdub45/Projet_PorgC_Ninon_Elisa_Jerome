@@ -390,6 +390,7 @@ Vérification:
 Valgrind:
 
 ![valgrind](captures/capture_valgrind_3h.png)
+
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
 
 ### Question de réflexion (Q5.1)
