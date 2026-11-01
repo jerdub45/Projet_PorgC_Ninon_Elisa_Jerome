@@ -459,18 +459,27 @@ qui permet de libéré l’espace en détruisant les matrices.
 
 # 5. Vérification mémoire
 Valgrind sur test1 :
+
 ![valgrind test1](captures/valgrind_1f.png)
 
+
 Valgrind sur test2 :
+
 ![valgrind test2](captures/Capture_q2.f2.png)
 
+
 Valgrind sur test3 :
+
 ![valgrind test3](captures/)
 
+
 Valgrind sur demo_matrices :
+
 ![valgrind demo_matrice](captures/
 
+
 Scénario d'erreur pour demo_matrices :
+
 ![valgrind scenario erreur demo_matrices](captures/Capture_scenario7.png)
 
 
