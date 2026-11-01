@@ -322,7 +322,7 @@ mat_ecrire appelle fflush car cette fonction utilise fprintf et fputc qui écriv
 
 Vérification :
 
-<img width="690" height="229" alt="image" src="https://github.com/user-attachments/assets/f3bcd23a-1749-4be7-bfce-7058f76747c4" />
+![vérification](captures/capture_vérification_3d.png)
 
 
 
@@ -385,12 +385,11 @@ return MAT_OK;
 
 Vérification:
 
-<img width="701" height="279" alt="image" src="https://github.com/user-attachments/assets/688f90d8-27e0-42b0-8075-dd904fd62662" />
+![vérification](captures/capture_vérification_3h.png)
 
 Valgrind:
 
-<img width="463" height="121" alt="image" src="https://github.com/user-attachments/assets/ed018a68-c86a-49fb-8a69-2edac0015833" />
-
+![valgrind](captures/capture_valgrind_3h.png)
 Valgrind nous indique bien : `All heap blocks were freed – no leaks are possible` comme attendu pour valider.
 
 ### Question de réflexion (Q5.1)
