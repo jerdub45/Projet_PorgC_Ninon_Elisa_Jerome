@@ -15,7 +15,10 @@ Date de rendu :
 1. [En-tête](#1-en-tête)
 2. [Introduction](#2-introduction)
 3. [Conception](#3-conception)
+    * [Schéma des modules](#schéma-des-modules)
+    * [Graphe des inclusions](#graphe-des-inclusions)
     * [Règles de propriétés de la mémoire](#règles-de-propriétés-de-la-mémoire)
+    * [Commande de compilation](#commande-de-compilation)
 4. [Réalisation](#4-réalisation)
     * [Exercice 1](#exercice-1)
     * [Exercice 2](#exercice-2)
@@ -66,10 +69,9 @@ l’appelant doit l’avoir détruite avant l’appel. res doit être distinct d
 * R7 Un fichier est fermé par le code qui l’a ouvert. Les fonctions de matrice_io reçoivent un flux déjà
 ouvert et ne le ferment jamais.
 
-## Justification des choix
 
 ## Commande de compilation
-
+`gcc -std=c11 -Wall -Wextra -Wpedantic -g main.c matrice.c matrice_alloc.c matrice_io.c matrice_calcul.c -o demo_matrices`
 
 
 # 4. Réalisation
@@ -368,37 +370,50 @@ De plus, un test simple comme s < a ne suffit pas pour détecter tous les cas de
 ### Scénarios de test
 #### Scénario 1
 ![capture](captures/Capture_scenario1.png)
+
 on retrouve les résultats attendus
+
 #### Scénario 2
 ![capture](captures/Capture_scenario2.png)
+
 on retrouve les résultats attendus
+
 #### Scénario 3
 ![capture](captures/Capture_scenario3.png)
+
 on retrouve les résultats attendus
 #### Scénario 4
 ![capture](captures/Capture_scenario4.png)
+
 on retrouve les résultats attendus
 #### Scénario 5
 ![capture](captures/Capture_scenario5.png)
+
 on retrouve les résultats attendus
 #### Scénario 6
 ![capture](captures/Capture_scenario6.png)
+
 on retrouve les résultats attendus
 #### Scénario 7
 ![capture](captures/Capture_scenario7.png)
+
 on retrouve les résultats attendus
 #### Scénario 8
 ![capture](captures/Capture_scenario8.1.png)
 ![capture](captures/Capture_scenario8.2.png)
+
 on retrouve les résultats attendus
 #### Scénario 9
 ![capture](captures/Capture_scenario9.2.1.png)
 ![capture](captures/Capture_scenario9.2.2.png)
 ![capture](captures/Capture_scenario9.3.1.png)
 ![capture](captures/Capture_scenario9.3.2.png)
+
 on retrouve les résultats attendus
 #### Scénario 10
+
 ![capture](captures/Capture_scenario10.png)
+
 on retrouve les résultats attendus
 
 ### Question de réflexion (Q6.1)
@@ -443,9 +458,16 @@ qui permet de libéré l’espace en détruisant les matrices.
 
 
 # 5. Vérification mémoire
+Valgrind sur test1 :
 ![valgrind test1](captures/valgrind_1f.png)
+
+Valgrind sur test2 :
 ![valgrind test2](captures/Capture_q2.f2.png)
+
+Valgrind sur test3 :
 ![valgrind test3](captures/)
+
+Valgrind sur demo_matrices :
 ![valgrind demo_matrice](captures/
 
 Scénario d'erreur pour demo_matrices :
