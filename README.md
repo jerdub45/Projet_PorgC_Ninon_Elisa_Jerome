@@ -471,7 +471,7 @@ Valgrind sur demo_matrices :
 ![valgrind demo_matrice](captures/
 
 Scénario d'erreur pour demo_matrices :
-![valgrind scenario erreur demo_matrices](captures/
+![valgrind scenario erreur demo_matrices](captures/Capture_scenario7.png)
 
 
 # 6. Démonstration finale
