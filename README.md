@@ -39,7 +39,18 @@ Ce projet est réalisé dans le cadre du cours de programmation C. Il s'agit d'u
 
 Concernant le code tout fonctionne comme attendu.
 
+
+
 # 3. Conception
+
+## Schéma des modules
+![schema des modules](captures/schema_des_modules.png)
+
+
+## Graphe des inclusions
+![graphe inclusions](captures/graphe_inclusions.png)
+
+Comme les fichiers .h non pas été modifier (et les includes des .c non plus) le graphe des inclusions reste le même que celui fourni dans le sujet de TD.
 
 
 ## Règles de propriétés de la mémoire
@@ -54,6 +65,10 @@ l’appelant doit l’avoir détruite avant l’appel. res doit être distinct d
 * R6 mat_detruire remet la matrice à MATRICE_VIDE : un second appel est sans effet. Sauf si la matrice à été copiée (cf Exercice 1 question de réflexion Q3.3).
 * R7 Un fichier est fermé par le code qui l’a ouvert. Les fonctions de matrice_io reçoivent un flux déjà
 ouvert et ne le ferment jamais.
+
+## Justification des choix
+
+## Commande de compilation
 
 
 
