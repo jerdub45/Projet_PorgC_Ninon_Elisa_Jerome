@@ -483,7 +483,10 @@ Scénario d'erreur pour demo_matrices :
 ![valgrind scenario erreur demo_matrices](captures/Capture_scenario7.png)
 
 
+Aucun module ne provoque de fuite dans aucun des 10 scénarios. (cf [partie scénarios de l'exercice 4](#scénarios-de-test))
+
 # 6. Démonstration finale
+Les 10 scénarios sont traités [ici](#scénarios-de-test).
 
 # 7. Bilan et difficultés
 
