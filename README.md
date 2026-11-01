@@ -33,7 +33,26 @@ Ce projet est réalisé dans le cadre du cours de programmation C. Il s'agit d'u
 * Apprendre à gérer les erreurs et mettre en place des tests
 * Apprendre à lire et écrire des données dans un fichier texte
 
+
+Concernant le code tout fonctionne comme attendu.
+
 # 3. Conception
+
+
+## Règles de propriétés de la mémoire
+* R1 Toute variable Matrice est initialisée à MATRICE_VIDE dès sa déclaration.
+* R2 Une fonction qui réussit (MAT_OK) et remplit *res transfère la propriété du résultat à l’appelant, qui
+devra appeler mat_detruire(&res).
+* R3 Une fonction qui échoue laisse *res égal à MATRICE_VIDE et a libéré tout ce qu’elle avait alloué :
+l’appelant n’a rien à libérer.
+* R4 Une fonction ne modifie et ne libère jamais une matrice reçue en entrée (const Matrice *).
+* R5 *res est un paramètre de sortie : son ancien contenu est écrasé. S’il possédait de la mémoire,
+l’appelant doit l’avoir détruite avant l’appel. res doit être distinct des entrées.
+* R6 mat_detruire remet la matrice à MATRICE_VIDE : un second appel est sans effet. Sauf si la matrice à été copiée (cf Exercice 1 question de réflexion Q3.3).
+* R7 Un fichier est fermé par le code qui l’a ouvert. Les fonctions de matrice_io reçoivent un flux déjà
+ouvert et ne le ferment jamais.
+
+
 
 # 4. Réalisation
 ## Exercice 1
@@ -153,6 +172,10 @@ Par contre ce n'est plus vrai si on fait une copie de la matrice tel que : `Matr
 * Lorsque l'on libère la matrice a on libère l'espace mémoire pointé par sa variable coef et son état est forcé à MATRICE_VIDE.
 * La variable coef de b n'a cependant pas été mise à jour et pointe donc maintenant sur un espace mémoire qui n'est plus réservé.
 * Par conséquent appeler mat_detruire sur b va provoquer un appel à free sur une zone mémoire déjà libérée, on obtient donc un comportement indéterminé.
+
+### Question de réflexion (Q3.4)
+mat_allouer commence par par l'affectation *res = MATRICE_VIDE car d'après la règle R3 une fonction qui échoue doit laisser *res à MATRICE_VIDE. Donc on initialise *res à MATRICE_VIDE avec d'effectuer les tests qui nous indique si l'on échoue ou non.
+
 
 ## Exercice 2
 ### Question (2.a)
@@ -402,7 +425,29 @@ qui permet de libéré l’espace en détruisant les matrices.
 
 
 # 5. Vérification mémoire
+![valgrind test1](captures/valgrind_1f.png)
+![valgrind test2](captures/Capture_q2.f2.png)
+![valgrind test3](captures/)
+![valgrind demo_matrice](captures/
+
+Scénario d'erreur pour demo_matrices :
+![valgrind scenario erreur demo_matrices](captures/
+
 
 # 6. Démonstration finale
 
 # 7. Bilan et difficultés
+
+## Répartition du travail
+Exercice 1 : Jérôme
+Exercice 2 : Ninon
+Exercice 3 : Elisa
+Exercice 4 : Ninon et Elisa
+Rédaction  : Jérôme
+
+Malgré ce découpage des tâches nous nous sommes entraidés au besoin. 
+
+## Aides extérieures
+* IA pour corriger les fautes d'orthographes.
+* Dans l'exercice 2, question e, la vérification n'étais pas demandée mais nous l'avons effectué et nous ne comprenions pas pourquoi la vérification indiquait echec alors nous avons demandé à l'IA et nous avons compris que c'est parce que le contenu de la question suivante était nécessaire au bon déroulement du test.
+* IA pour savoir comment lier l'interface VS code et le dépôt GitHub
