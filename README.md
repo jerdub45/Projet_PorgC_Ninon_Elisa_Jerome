@@ -478,6 +478,9 @@ Scénario d'erreur pour demo_matrices :
 
 # 7. Bilan et difficultés
 
+Ce TD nous a permis de mieux comprendre et mieux manipuler certaines notions du langage C, comme les flux ou encore la gestion des fichiers. Mais aussi l'organisation d'un projet en module distinct.
+
+
 ## Répartition du travail
 Exercice 1 : Jérôme
 
