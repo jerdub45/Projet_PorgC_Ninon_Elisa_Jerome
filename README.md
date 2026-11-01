@@ -15,14 +15,17 @@ Date de rendu :
 1. [En-tête](#1-en-tête)
 2. [Introduction](#2-introduction)
 3. [Conception](#3-conception)
+    * [Règles de propriétés de la mémoire](#règles-de-propriétés-de-la-mémoire)
 4. [Réalisation](#4-réalisation)
-  * [Exercice 1](#exercice-1)
-  * [Exercice 2](#exercice-2)
-  * [Exercice 3](#exercice-3)
-  * [Exercice 4](#exercice-4)
+    * [Exercice 1](#exercice-1)
+    * [Exercice 2](#exercice-2)
+    * [Exercice 3](#exercice-3)
+    * [Exercice 4](#exercice-4)
 5. [Vérification mémoire](#5-vérification-mémoire)
 6. [Démonstration finale](#6-démonstration-finale)
 7. [Bilan et difficultés](#7-bilan-et-dificultés)
+    * [Répartition du travail](#répartition-du-travail)
+    * [Aides extérieures](#aides-extérieures)
 
 # 2. Introduction
 Ce projet est réalisé dans le cadre du cours de programmation C. Il s'agit d'une bibliothèque C ayant pour but la manipulation de matrices de coefficients entiers et les calculs matriciels associés. Cette bibliothèque se découpe en plusieurs modules qui possèdent chacun une utilité qui leur est propre. Les objectifs de ce TD sont :
