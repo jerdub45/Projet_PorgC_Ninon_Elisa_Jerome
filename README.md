@@ -270,19 +270,55 @@ mat_ecrire appelle fflush car cette fonction utilise fprintf et fputc qui écriv
 ## Exercice 3
 ### Question (3.a)
 
-<img width="710" height="225" alt="image" src="https://github.com/user-attachments/assets/6d1d5d8a-6218-4b62-ac37-2628a4c0b846" />
+```c
+    /* (3.a) À COMPLÉTER : si a et b n'ont pas le même nombre de lignes
+     *       OU pas le même nombre de colonnes,
+     *       renvoyer MAT_ERR_DIMENSIONS.                              */
+
+
+    if (a->nb_lignes != b->nb_lignes || a->nb_colonnes != b->nb_colonnes){
+        return MAT_ERR_DIMENSIONS;
+    }
+    // fin q3.a
+```
 
 ### Question (3.b)
 
-<img width="693" height="197" alt="image" src="https://github.com/user-attachments/assets/4553dd0c-1681-48b4-9b88-e177242b2cd5" />
+```c
+  /* (3.b) À COMPLÉTER : allouer r avec les dimensions de a ;
+     *         err = mat_allouer(&r, ..., ...);
+     *         if (err != MAT_OK) return err;                          */
+    Matrice r = MATRICE_VIDE;
+    err = mat_allouer(&r, a->nb_lignes, a->nb_colonnes);
+    if (err != MAT_OK)
+        return err;
+// fin q3.b
+
+```
 
 ### Question (3.c)
 
-<img width="647" height="142" alt="image" src="https://github.com/user-attachments/assets/5fb9ae06-3998-4f8e-ba3b-3a96d2c49808" />
+```c
+  /* (3.c) À COMPLÉTER : calculer la somme des coefficients
+             *       (i, j) de a et de b EN long long :
+             *         long long s = (long long)a->coef[i][j] + ... ;  */
+            //long long s = 0;   /* ligne provisoire : à remplacer en (3.c) */
+            long long s = (long long) a->coef[i][j] + b->coef[i][j];
+            //fin q3.c 
+```
 
 ### Question (3.d)
 
-<img width="751" height="195" alt="image" src="https://github.com/user-attachments/assets/98149085-5ca8-4931-8f20-13060a5500d7" />
+```c
+    /* (3.d) À COMPLÉTER : transférer le résultat :
+     *         *res = r;  return MAT_OK;                               */
+   // mat_detruire(&r);            /* ligne provisoire : à supprimer en (3.d) */
+    //return MAT_ERR_LECTURE;      /* ligne provisoire : à remplacer en (3.d) */
+    *res=r;
+    return MAT_OK;
+}
+// fin q3.d
+```
 
 Vérification :
 
@@ -292,19 +328,60 @@ Vérification :
 
 ### Question (3.e)
 
-<img width="658" height="190" alt="image" src="https://github.com/user-attachments/assets/00821646-0770-4467-b3f8-4f07267950da" />
+```c
 
+    /* (3.e) À COMPLÉTER : le produit a x b n'existe que si le nombre de
+     *       COLONNES de a est égal au nombre de LIGNES de b.
+     *       Sinon, renvoyer MAT_ERR_DIMENSIONS.                       */
+    if (a->nb_colonnes != b->nb_lignes){
+        return MAT_ERR_DIMENSIONS;
+    }
+    //fin q3.e
+```
 ### Question (3.f)
 
-<img width="706" height="187" alt="image" src="https://github.com/user-attachments/assets/7a4325fd-9078-4e6b-ab5b-69c93f83bf36" />
+```c
+ /* (3.f) À COMPLÉTER : allouer r de dimensions
+     *       (lignes de a) x (colonnes de b).                          */
+    Matrice r = MATRICE_VIDE;
+    err =mat_allouer(&r,a->nb_lignes,b->nb_colonnes);
+    if (err!= MAT_OK)
+        return err;
+//fin q3.f
+
+```
 
 ### Question (3.g)
 
-<img width="617" height="320" alt="image" src="https://github.com/user-attachments/assets/8c0452bd-1177-4986-a5f2-7873f9f1424d" />
+```c
+
+            /* (3.g) À COMPLÉTER : boucle sur k, de 0 à a->nb_colonnes - 1,
+             *       qui ajoute à s le produit a(i,k) x b(k,j) :*/
+            
+            for (int k = 0; k < a->nb_colonnes; k++) {
+                long long p = (long long)a->coef[i][k] * b->coef[k][j];
+                if ((p > 0 && s > LLONG_MAX - p)
+                    || (p < 0 && s < LLONG_MIN - p)) {
+                    mat_detruire(&r);
+                    return MAT_ERR_DEPASSEMENT;
+                }
+                s += p;
+            }    
+            
+              //fin q3.g            
+```
 
 ### Question (3.h)
 
-<img width="808" height="170" alt="image" src="https://github.com/user-attachments/assets/026784dd-bb2b-4f83-a4bb-008eeea26e03" />
+```c
+  /* (3.h) À COMPLÉTER : *res = r;  return MAT_OK;                    */
+    //mat_detruire(&r);            /* ligne provisoire : à supprimer en (3.h) */
+    //return MAT_ERR_LECTURE;      /* ligne provisoire : à remplacer en (3.h) */
+*res = r;
+return MAT_OK;
+}
+// fin Q3.H
+```
 
 Vérification:
 
