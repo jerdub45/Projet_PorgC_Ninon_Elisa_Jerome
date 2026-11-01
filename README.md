@@ -547,12 +547,12 @@ Valgrind sur test2 :
 
 Valgrind sur test3 :
 
-![valgrind test3](captures/)
+![valgrind test3](captures/capture_valgrind_3h.png)
 
 
 Valgrind sur demo_matrices :
 
-![valgrind demo_matrice](captures/
+![valgrind demo_matrice](captures/capture_valgrind_demo_matrices.png)
 
 
 Scénario d'erreur pour demo_matrices :
