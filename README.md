@@ -8,7 +8,7 @@ Intitulé du TD : TD stockage de matrices en C.
 
 Groupe TD : TD3
 
-Date de rendu :
+Date de rendu : 2 Novembre 2026
 
 ## Table des matières :
 
